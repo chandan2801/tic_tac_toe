@@ -1,0 +1,130 @@
+<html>
+<body>
+<div id="1" style="float:left;">
+	<button class="00" id="b1" style="height: 100px; width: 100px;" onclick="tictactoe(this);"></button>
+</div>
+<div id="2" style="float:left;">
+	<button class="01" id="b2" style="height: 100px; width: 100px;" onclick="tictactoe(this);"></button>
+</div>
+<div id="3">
+	<button class="02" id="b3" style="height: 100px; width: 100px;" onclick="tictactoe(this);"></button>
+</div>
+<div id="4" style="float:left;">
+	<button class="10" id="b4" style="height: 100px; width: 100px;" onclick="tictactoe(this);"></button>
+</div>
+<div id="5" style="float:left;">
+	<button class="11" id="b5" style="height: 100px; width: 100px;" onclick="tictactoe(this);"></button>
+</div>
+<div id="6">
+	<button class="12" id="b6" style="height: 100px; width: 100px;" onclick="tictactoe(this);"></button>
+</div>
+<div id="7" style="float:left;">
+	<button class="20" id="b7" style="height: 100px; width: 100px;" onclick="tictactoe(this);"></button>
+</div>
+<div id="8" style="float:left;">
+	<button class="21" id="b8" style="height: 100px; width: 100px;" onclick="tictactoe(this);"></button>
+</div>
+<div id="9">
+	<button class="22" id="b9" style="height: 100px; width: 100px;" onclick="tictactoe(this);"></button>
+</div>
+<div id="result"></div>
+<script type="text/javascript">
+	var cross=0,ctr=1;
+	function tictactoe(element)
+	{
+		var parent = element.parentNode;
+ 		var blid=parent.id;
+ 		var flag=0;
+ 		var c;
+ 		//window.alert(blid);
+		if(cross == 0)
+		{
+			document.getElementById("b"+blid).innerHTML="x";	
+			cross=1;
+			c="x";
+		}
+		else
+		{
+			document.getElementById("b"+blid).innerHTML="o";
+			cross=0;
+			c="o";
+		}
+		if(ctr<=9)
+		{
+			if(document.getElementById("b1").innerHTML == c && document.getElementById("b2").innerHTML == c && document.getElementById("b3").innerHTML == c)
+			{
+				flag=1;
+			}
+			if(document.getElementById("b4").innerHTML == c && document.getElementById("b5").innerHTML == c && document.getElementById("b6").innerHTML == c)
+			{
+				flag=1;
+			}
+			if(document.getElementById("b7").innerHTML == c && document.getElementById("b8").innerHTML == c && document.getElementById("b9").innerHTML == c)
+			{
+				flag=1;
+			}
+			if(document.getElementById("b1").innerHTML == c && document.getElementById("b4").innerHTML == c && document.getElementById("b7").innerHTML == c)
+			{
+				flag=1;
+			}
+			if(document.getElementById("b2").innerHTML == c && document.getElementById("b5").innerHTML == c && document.getElementById("b8").innerHTML == c)
+			{
+				flag=1;
+			}
+			if(document.getElementById("b3").innerHTML == c && document.getElementById("b6").innerHTML == c && document.getElementById("b9").innerHTML == c)
+			{
+				flag=1;
+			}
+			if(document.getElementById("b1").innerHTML == c && document.getElementById("b5").innerHTML == c && document.getElementById("b9").innerHTML == c)
+			{
+				flag=1;
+			}
+			if(document.getElementById("b3").innerHTML == c && document.getElementById("b5").innerHTML == c && document.getElementById("b7").innerHTML == c)
+			{
+				flag=1;
+			}
+		}
+		ctr++;
+		if(flag==1)
+		{
+			if(cross==1)
+			{
+				document.getElementById("result").innerHTML = "A wins";
+			}
+			else
+			{
+				document.getElementById("result").innerHTML = "B wins";
+			}
+			document.getElementById("b1").innerHTML="";
+			document.getElementById("b2").innerHTML="";
+			document.getElementById("b3").innerHTML="";
+			document.getElementById("b4").innerHTML="";
+			document.getElementById("b5").innerHTML="";
+			document.getElementById("b6").innerHTML="";
+			document.getElementById("b7").innerHTML="";
+			document.getElementById("b8").innerHTML="";
+			document.getElementById("b9").innerHTML="";
+			cross=0;
+			ctr=1;
+		}
+		if(ctr>9)
+		{
+			if(flag==0)
+			{
+				document.getElementById("result").innerHTML = "Match tied";
+				document.getElementById("b1").innerHTML="";
+				document.getElementById("b2").innerHTML="";
+				document.getElementById("b3").innerHTML="";
+				document.getElementById("b4").innerHTML="";
+				document.getElementById("b5").innerHTML="";
+				document.getElementById("b6").innerHTML="";
+				document.getElementById("b7").innerHTML="";
+				document.getElementById("b8").innerHTML="";
+				document.getElementById("b9").innerHTML="";
+			}
+			cross=0;ctr=1;
+		}
+	}
+</script>
+</body>
+</html>
